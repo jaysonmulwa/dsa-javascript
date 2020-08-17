@@ -1,4 +1,4 @@
-
+//vertical and diagonal not complete
 function wordCount(board, word) {
     
     let hor_c = 0;
