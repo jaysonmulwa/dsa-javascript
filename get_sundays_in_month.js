@@ -1,9 +1,21 @@
-function get_sundays(){
+ function get_sundays(month, year){
+            
+                var result = [];
+                
+                var sunday = moment(year + '-' + month).day("Sunday");
 
-            let start = "August 2020";
-           
-            var d = new Date('1 ' + start);
-            var ndays = new Date(d.getFullYear(), d.getMonth() + 1, 0).getDate();
-            alert(Math.floor((ndays + (d.getDay() + 6) % 7) / 7));
+                if (sunday.date() > 7) sunday.add(7,'d');
 
-}
+                var month = sunday.month();
+
+                while(month === sunday.month()){
+
+                    result.push(sunday.toString());
+
+                    sunday.add(7,'d');
+
+                }
+
+                return result.length;
+
+        }
